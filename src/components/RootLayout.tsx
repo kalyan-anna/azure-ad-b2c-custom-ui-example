@@ -4,6 +4,7 @@ import { ThemeProvider } from 'next-themes';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import Head from 'next/head';
+import { PageContainer } from './PageContainer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,7 +20,7 @@ export function RootLayout({
           <title>Authly</title>
         </Head>
         <Navbar />
-        <div>{children}</div>
+        <PageContainer>{children}</PageContainer>
         <Footer />
       </ThemeProvider>
     </main>
