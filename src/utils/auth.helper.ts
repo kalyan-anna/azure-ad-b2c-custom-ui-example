@@ -1,6 +1,6 @@
 import { Configuration } from '@azure/msal-browser';
 
-const CLIENT_ID = 'f686da54-7b3f-4030-b450-2d8720f38cb5 offline_access openid';
+const CLIENT_ID = 'f686da54-7b3f-4030-b450-2d8720f38cb5';
 export const API_SCOPE = 'https://contoso.com/.default';
 
 function getAuthConfig() {
@@ -8,10 +8,10 @@ function getAuthConfig() {
     auth: {
       clientId: CLIENT_ID,
       authority: 'https://login.microsoftonline.com/6c746cb8-8900-4bfe-8511-3a97f021f957',
-      redirectUri: '/',
+      redirectUri: '/authorize',
       postLogoutRedirectUri: '/',
       knownAuthorities: [],
-      navigateToLoginRequestUrl: true,
+      navigateToLoginRequestUrl: false,
     },
     cache: {
       // Optional

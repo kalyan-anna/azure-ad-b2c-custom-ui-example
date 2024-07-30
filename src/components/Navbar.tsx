@@ -3,7 +3,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Disclosure } from '@headlessui/react';
 
-export const Navbar = () => {
+interface NavbarProps {
+  onSignInClick: () => void;
+  onSignOutClick: () => void;
+  isAuthenticated: boolean;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ onSignInClick, onSignOutClick, isAuthenticated }) => {
   return (
     <div className='w-full'>
       <nav className='container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0'>
@@ -47,9 +53,15 @@ export const Navbar = () => {
         </Disclosure>
 
         <div className='hidden mr-3 space-x-4 lg:flex nav__item'>
-          <Link href='/' className='px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5'>
-            Sign in
-          </Link>
+          {isAuthenticated ? (
+            <button onClick={onSignOutClick} className='px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5'>
+              Sign out
+            </button>
+          ) : (
+            <button onClick={onSignInClick} className='px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5'>
+              Sign in
+            </button>
+          )}
         </div>
       </nav>
     </div>

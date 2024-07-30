@@ -1,17 +1,39 @@
-import React from 'react';
+import { msalInstance } from '@/pages/_app';
+import { useAccount, useIsAuthenticated } from '@azure/msal-react';
+import React, { useEffect, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
-interface SessionDetailsProps {
-  session: any;
-}
+export const SessionDetails = () => {
+  const accountInfo = useAccount();
+  const isAuthenticated = useIsAuthenticated();
+  const [accessToken, setAccessToken] = useState('');
 
-export const SessionDetails: React.FC<SessionDetailsProps> = ({ session }) => {
+  useEffect(() => {
+    if (!isAuthenticated) {
+      return;
+    }
+    async function fetchAccessToken() {
+      const account = msalInstance.getActiveAccount();
+      if (!account) {
+        throw 'account not found';
+      }
+      const response = await msalInstance.acquireTokenSilent({
+        account: account,
+        scopes: ['User.Read offline_access openid'],
+      });
+      setAccessToken(response.accessToken);
+    }
+    fetchAccessToken();
+  }, [isAuthenticated]);
+
   const result = JSON.stringify(
     {
-      isAuthenticated: session?.status === 'authenticated',
-      name: session?.data?.user?.name,
-      email: session?.data?.user?.email,
-      accessToken: session?.data?.accessToken,
+      isAuthenticated: isAuthenticated,
+      name: accountInfo?.name,
+      username: accountInfo?.username,
+      accessToken: accessToken,
+      idToken: accountInfo?.idToken,
+      idTokenClaims: accountInfo?.idTokenClaims,
     },
     null,
     2
@@ -20,9 +42,11 @@ export const SessionDetails: React.FC<SessionDetailsProps> = ({ session }) => {
   return (
     <section className='mt-16 bg-zinc-300 rounded p-4'>
       <h4 className='mb-2 text-2xl font-bold'>Session Details:</h4>
-      <SyntaxHighlighter language='json' wrapLines={true} wrapLongLines={true}>
-        {result}
-      </SyntaxHighlighter>
+      {typeof window !== 'undefined' && (
+        <SyntaxHighlighter language='json' wrapLines={true} wrapLongLines={true}>
+          {result}
+        </SyntaxHighlighter>
+      )}
     </section>
   );
 };
