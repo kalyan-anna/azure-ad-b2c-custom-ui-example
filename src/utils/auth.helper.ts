@@ -8,7 +8,7 @@ function getAuthConfig() {
     auth: {
       clientId: CLIENT_ID,
       authority:
-        'https://examplecustomuiauthorg.b2clogin.com/examplecustomuiauthorg.onmicrosoft.com/B2C_1_sign-in-default-user-flow',
+        'https://examplecustomuiauthorg.b2clogin.com/examplecustomuiauthorg.onmicrosoft.com/B2C_1A_DEMO_SIGNUP_SIGNIN_PHONEOREMAILMFA',
       redirectUri: '/authorize',
       postLogoutRedirectUri: '/',
       knownAuthorities: ['examplecustomuiauthorg.b2clogin.com'],

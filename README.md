@@ -9,3 +9,6 @@ nvm use
 npm install
 npm run dev
 ```
+
+Install VS Code extension
+https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c

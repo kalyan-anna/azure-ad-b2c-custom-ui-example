@@ -18,15 +18,9 @@ export function RootLayout({
   const isAuthenticated = useIsAuthenticated();
 
   const handleLogin = () => {
-    instance
-      .loginRedirect({
-        scopes: [
-          'https://examplecustomuiauthorg.onmicrosoft.com/9df3026b-7479-45b9-a626-b327220a3722/task.read https://examplecustomuiauthorg.onmicrosoft.com/9df3026b-7479-45b9-a626-b327220a3722/tasks.write offline_access openid',
-        ],
-      })
-      .catch((e) => {
-        console.error(`loginRedirect failed: ${e}`);
-      });
+    instance.loginRedirect().catch((e) => {
+      console.error(`loginRedirect failed: ${e}`);
+    });
   };
 
   const handleLogout = () => {
