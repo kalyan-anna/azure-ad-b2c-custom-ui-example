@@ -19,7 +19,9 @@ export const SessionDetails = () => {
       }
       const response = await msalInstance.acquireTokenSilent({
         account: account,
-        scopes: ['User.Read offline_access openid'],
+        scopes: [
+          'https://examplecustomuiauthorg.onmicrosoft.com/9df3026b-7479-45b9-a626-b327220a3722/task.read https://examplecustomuiauthorg.onmicrosoft.com/9df3026b-7479-45b9-a626-b327220a3722/tasks.write offline_access openid',
+        ],
       });
       setAccessToken(response.accessToken);
     }

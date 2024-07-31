@@ -19,6 +19,10 @@ msalInstance.initialize().then(() => {
       msalInstance.setActiveAccount(account);
     }
   });
+
+  msalInstance.handleRedirectPromise().catch((error) => {
+    console.log(error);
+  });
 });
 
 export default function App({ Component, pageProps }: AppProps) {

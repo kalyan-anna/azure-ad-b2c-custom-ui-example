@@ -7,10 +7,11 @@ function getAuthConfig() {
   return {
     auth: {
       clientId: CLIENT_ID,
-      authority: 'https://login.microsoftonline.com/6c746cb8-8900-4bfe-8511-3a97f021f957',
+      authority:
+        'https://examplecustomuiauthorg.b2clogin.com/examplecustomuiauthorg.onmicrosoft.com/B2C_1_sign-in-default-user-flow',
       redirectUri: '/authorize',
       postLogoutRedirectUri: '/',
-      knownAuthorities: [],
+      knownAuthorities: ['examplecustomuiauthorg.b2clogin.com'],
       navigateToLoginRequestUrl: false,
     },
     cache: {
