@@ -1,4 +1,3 @@
-import { Inter } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 
 import { Navbar } from '@/components/Navbar';
@@ -6,8 +5,6 @@ import { Footer } from '@/components/Footer';
 import Head from 'next/head';
 import { PageContainer } from './PageContainer';
 import { useIsAuthenticated, useMsal } from '@azure/msal-react';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export function RootLayout({
   children,

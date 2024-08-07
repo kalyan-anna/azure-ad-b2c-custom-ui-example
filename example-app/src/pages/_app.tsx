@@ -4,6 +4,13 @@ import { authHelper } from '@/utils/auth.helper';
 import { EventType, PublicClientApplication } from '@azure/msal-browser';
 import type { AppProps } from 'next/app';
 import { MsalProvider } from '@azure/msal-react';
+import { Roboto_Mono } from 'next/font/google';
+
+const robotoMono = Roboto_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+});
 
 export const msalInstance = new PublicClientApplication(authHelper.getAuthConfig());
 
@@ -28,9 +35,11 @@ msalInstance.initialize().then(() => {
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <MsalProvider instance={msalInstance}>
-      <RootLayout>
-        <Component {...pageProps} />
-      </RootLayout>
+      <div className={robotoMono.className}>
+        <RootLayout>
+          <Component {...pageProps} />
+        </RootLayout>
+      </div>
     </MsalProvider>
   );
 }
