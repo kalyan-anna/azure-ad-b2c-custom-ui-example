@@ -1,14 +1,13 @@
 import { Container } from './Container';
 
 export function Footer() {
-  const navigation = ['Product', 'Features', 'Pricing', 'Company', 'Blog'];
   const legal = ['Terms', 'Privacy', 'Legal'];
 
   return (
     <div className='relative bg-zinc-300'>
       <Container>
-        <div className='grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-5'>
-          <div className='lg:col-span-2'>
+        <div className='grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-3'>
+          <div className=''>
             <div>
               {' '}
               <a
@@ -20,38 +19,21 @@ export function Footer() {
               </a>
             </div>
 
-            <div className='max-w-md mt-4 text-gray-500 dark:text-gray-400'>
-              Authy is an example repository designed to demonstrate how to customize the user interface using custom
-              policies in Azure Active Directory (Azure AD)
-            </div>
+            <div className='max-w-md mt-4 text-gray-500 dark:text-gray-400'>Azure AD Custom UI</div>
           </div>
 
-          <div>
-            <div className='flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0'>
-              {navigation.map((item, index) => (
-                <a
-                  key={index}
-                  href='/'
-                  className='w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700'
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
+          <div className='flex w-full'>
+            {legal.map((item, index) => (
+              <a
+                key={index}
+                href='/'
+                className='w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700'
+              >
+                {item}
+              </a>
+            ))}
           </div>
-          <div>
-            <div className='flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0'>
-              {legal.map((item, index) => (
-                <a
-                  key={index}
-                  href='/'
-                  className='w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700'
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
-          </div>
+
           <div className=''>
             <div>Follow us</div>
             <div className='flex mt-5 space-x-5 text-gray-400 dark:text-gray-500'>

@@ -8,7 +8,7 @@ export function RootLayout({
   children?: React.ReactNode;
 }>) {
   return (
-    <main className='bg-slate-300'>
+    <main className='bg-slate-300 flex flex-col h-screen'>
       <Navbar />
       <PageContainer>{children}</PageContainer>
       <Footer />
