@@ -382,6 +382,9 @@
   </UserJourneys>
   <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignInMFAOption" />
+    <UserJourneyBehaviors>
+      <ScriptExecution>Allow</ScriptExecution>
+    </UserJourneyBehaviors>
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
       <Protocol Name="OpenIdConnect" />

@@ -1,8 +1,17 @@
 import Image from 'next/image';
 import { Container } from '@/components/Container';
 import heroImg from '../../public/img/hero.png';
+import { useMsal } from '@azure/msal-react';
 
 export const Hero = () => {
+  const { instance } = useMsal();
+
+  const handleLogin = () => {
+    instance.loginRedirect().catch((e) => {
+      console.error(`loginRedirect failed: ${e}`);
+    });
+  };
+
   return (
     <>
       <Container className='flex flex-wrap '>
@@ -17,9 +26,12 @@ export const Hero = () => {
             </p>
 
             <div className='flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row'>
-              <a href='/' className='px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md '>
+              <button
+                className='px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md '
+                onClick={handleLogin}
+              >
                 Sign in
-              </a>
+              </button>
               <a
                 href='https://github.com/kalyan-anna'
                 target='_blank'

@@ -30,7 +30,7 @@ export function RootLayout({
   };
 
   return (
-    <main>
+    <main className='bg-slate-300'>
       <ThemeProvider attribute='class'>
         <Head>
           <title>Authly</title>
