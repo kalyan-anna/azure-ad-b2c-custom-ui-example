@@ -1,9 +1,11 @@
 import { RootLayout } from '../components/RootLayout';
 
-export const UnifiedPage = () => {
+const UnifiedPage = () => {
   return (
     <RootLayout>
       <div>custom unified page</div>
     </RootLayout>
   );
 };
+
+export default UnifiedPage;

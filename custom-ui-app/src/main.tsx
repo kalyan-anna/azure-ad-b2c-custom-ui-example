@@ -1,23 +1,33 @@
-import React from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
-import { HomePage } from './pages/home.tsx';
-import { UnifiedPage } from './pages/unified.tsx';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <HomePage />,
-  },
-  {
-    path: '/unified',
-    element: <UnifiedPage />,
-  },
-]);
+const Home = lazy(() => import('./pages/home.tsx'));
+const Unified = lazy(() => import('./pages/unified.tsx'));
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path='unified'
+          element={
+            <Suspense fallback={<>Loading app...</>}>
+              <Unified />
+            </Suspense>
+          }
+        />
+        <Route
+          path='/'
+          element={
+            <Suspense fallback={<>Loading app...</>}>
+              <Home />
+            </Suspense>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );

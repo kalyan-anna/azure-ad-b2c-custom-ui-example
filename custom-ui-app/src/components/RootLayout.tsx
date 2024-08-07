@@ -5,7 +5,7 @@ import { Footer } from './Footer';
 export function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }>) {
   return (
     <main className='bg-slate-300'>

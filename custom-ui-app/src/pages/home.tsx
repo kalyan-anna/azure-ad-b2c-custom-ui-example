@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { RootLayout } from '../components/RootLayout';
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
     <RootLayout>
       <div className='text-center'>
@@ -19,3 +19,5 @@ export const HomePage = () => {
     </RootLayout>
   );
 };
+
+export default HomePage;
