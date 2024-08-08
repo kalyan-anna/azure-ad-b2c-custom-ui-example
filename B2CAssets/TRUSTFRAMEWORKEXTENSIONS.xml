@@ -20,7 +20,7 @@
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.signuporsignin">
-        <LoadUri>https://authlyblobaccount.blob.core.windows.net/root/customized-unified.html</LoadUri>
+        <LoadUri>https://authlyblobaccount.z8.web.core.windows.net</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.1</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.selfasserted">
